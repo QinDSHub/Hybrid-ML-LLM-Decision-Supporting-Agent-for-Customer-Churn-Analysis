@@ -1,0 +1,83 @@
+# Implementation Overview
+
+## Data Preprocessing
+
+Standard data cleaning and normalization were applied to ensure consistency and reliability for downstream modeling.
+
+## Feature Engineering & Churn Label Definition
+
+Churn is defined based on business logic:
+
+max_date = estimated_last_visit_date + median_visit_interval + 3-month buffer
+
+•	If a customer has not visited by max_date, they are labeled as churned (1), otherwise, they are labeled as active (0).
+
+•	A binary classification setup is recommended. Although a three-class setup was explored, the LLM consistently converged to binary outputs. An optional “uncertain” class can be introduced via prompting when model confidence is low.
+
+## Top-K Feature Extraction (GBDTs)
+
+LightGBM is used to identify the most influential churn-driving features, which serve as the foundation for downstream reasoning.
+
+## Structured Text Transformation
+
+Selected Top-K features are transformed into structured textual representations.
+
+Both the raw data and generated text are in Chinese, reflecting the business context of this implementation.
+
+## Vector Store Construction
+
+Each customer profile is treated as an individual document and embedded using an embedding model.
+
+Chroma is used as the vector store for similarity search.
+
+## RAG-Based Retention Reasoning
+
+For each customer profile in the validation set:
+
+•	Top-10 most similar customers are retrieved using cosine similarity
+
+•	Retrieved profiles are provided to the LLM as RAG context for churn/retention reasoning
+
+## Evaluation & Iterative Optimization
+
+•	Baseline performance (100 customers): AUC = 0.873
+
+•	Manual review of misclassified samples revealed several optimization opportunities:
+
+o	Automatically label customers with no visits for over 3 years as churned across train/validation/test sets, bypassing RAG and inference because RAG benefits from relevant volume, not sheer volume.
+
+o	Strengthen preprocessing by removing accident-related repair records, which are non-habitual and introduce noise
+
+o	Feed manually reviewed misclassified samples back into the RAG knowledge base for continuous improvement
+
+o	Selecting stronger OpenAI embedding and chat models is expected to further improve performance. In this implementation, text-embedding-3-small and gpt-5-nano are used primarily for cost efficiency when operating at scale datasets.
+
+o	Future exploration:
+
+  - Adopt a sliding-window–based churn labeling strategy instead of a purely time-statistics–based approach. Different business scenarios require different churn definitions, and the choice of labeling methodology has a direct and significant impact on model behavior, performance, and interpretability.
+
+  - Embed ML features directly as vectors instead of structured text
+
+  - Explore deep learning approaches (e.g., Transformers) for feature engineering. While DL may offer stronger representation power, it is harder to align with business explainability requirements. A hybrid ML + DL approach is likely the most practical path forward.
+
+## Agentic Workflow
+
+A lightweight agentic pipeline is adopted:
+
+•	The first agent performs reasoning, explanation, and recommendation via the LLM
+
+•	Outputs are passed to downstream agents for further processing and integration
+
+## Ongoing Work
+
+I will continue to share:
+
+•	Iteration details for each version
+
+•	Final, cleaned, and summarized code after completing the exploratory phase
+
+•	An additional exploration is underway: building a handwriting OCR web app using RedNote.OCR, which has so far delivered the best performance in recognizing my handwritten text while preserving structural layout, enhanced further through LoRA fine-tuning.
+
+•	The current AI landscape enables exciting experimentation that tightly integrates ML, DL, and agentic workflows.
+
+Happy to share, discuss and exchange ideas further 🚀
