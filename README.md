@@ -43,7 +43,7 @@ Feature weights were applied:<br>
 After concatenation, L2 normalization was applied and made sure fit on full dataset to ensure consistent vector scaling, and after that to split into train and valid.
 ________________________________________
 ## Why LLM Inference Was Not Used<br>
-In the previous version, I transformed numerical features into binned textual features and fed them into an LLM. However, a very important and fundamental concept has been overlooked: text embedding models struggled to distinguish values such as “1-year car age” vs “11-year car age”, actually “1-year car age” should be much more similar with ‘2-year car age’ rather than ’11-year car age’.<br>
+In the previous version, I transformed numerical features into binned textual features and fed them into an LLM. However, a very important and fundamental concept has been overlooked: text embedding models struggled to distinguish values such as “1-year car age” vs “11-year car age”, actually “1-year car age” should be much more similar with ‘2-year car age’ rather than ’11-year car age’.<br><br>
 While LLMs are extremely powerful for text reasoning, this task is primarily driven by structured numerical signals, so relying on LLM-based inference did not provide meaningful benefits. This led to the current hybrid approach.
 ________________________________________
 ## Training and Validation Split<br>
