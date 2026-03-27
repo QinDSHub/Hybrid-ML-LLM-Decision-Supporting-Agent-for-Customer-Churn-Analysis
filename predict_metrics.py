@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[ ]:
-
-
 from langchain_openai import ChatOpenAI
 from langchain_openai import OpenAIEmbeddings
 import os, dotenv, gc, argparse
