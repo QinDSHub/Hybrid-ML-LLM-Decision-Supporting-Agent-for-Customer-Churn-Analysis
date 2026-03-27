@@ -60,7 +60,7 @@ For each sample in the validation set:<br>
 &emsp;•	Assign the majority label as the final prediction, the threshold is set as 0.4 will get the best AUC with 0.936
 ________________________________________
 ## Result<br>
-Using this hybrid retrieval-based approach, the model achieved: AUC = 0.936，precision = 0.9256, recall = 0.9232, f1_score = 0.9244, accurate = 0.9383;
+Using this hybrid retrieval-based approach, the model achieved on total 10% valid datasets: AUC = 0.936，precision = 0.9256, recall = 0.9232, f1_score = 0.9244, accurate = 0.9383;
 
 ________________________________________
 ## Limitations and practical considerations<br>
