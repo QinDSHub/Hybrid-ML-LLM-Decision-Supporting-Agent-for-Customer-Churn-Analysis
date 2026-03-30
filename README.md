@@ -189,10 +189,10 @@ Docker packaging and Azure deployment scaffolding have also been prepared as par
 ---
 
 ## Future directions
-One of my next priorities is to continue modularizing the core pipeline and integrate it into Agentic Skill Workflows for automated orchestration. Potential examples include:
-•	triggering incremental prediction when new data arrives 
-•	running scheduled full retraining and model refresh 
-•	automating evaluation, validation, and deployment as reusable workflows 
+One of my next priorities is to continue modularizing the core pipeline and integrate it into Agentic Skill Workflows for automated orchestration. Potential examples include:<br>
+•	triggering incremental prediction when new data arrives<br> 
+•	running scheduled full retraining and model refresh<br> 
+•	automating evaluation, validation, and deployment as reusable workflows<br> 
 I am also interested in comparing this approach with Multi-Agent Workflows to better understand which architecture is more effective for maintainability, flexibility, and operational efficiency in production ML systems.
 
 ---
