@@ -198,16 +198,16 @@ I am also interested in comparing this approach with Multi-Agent Workflows to be
 ---
 
 ## Tech stack
-•	Python 
-•	Pandas / NumPy 
-•	scikit-learn 
-•	FastAPI 
-•	Uvicorn 
-•	GitHub Actions 
-•	OpenAI Embeddings
-•	LLM infrastructure
-
+•	Python<br>
+•	Pandas / NumPy <br>
+•	scikit-learn <br>
+•	FastAPI <br>
+•	Uvicorn <br>
+•	GitHub Actions <br>
+•	OpenAI Embeddings<br>
+•	LLM infrastructure<br>
 The FastAPI application has been implemented and locally validated. Docker packaging and Azure deployment scaffolding have also been prepared as part of the engineering refactor, but end-to-end validation and cloud deployment have not yet been fully completed.
+
 ---
 
 ## Closing note
