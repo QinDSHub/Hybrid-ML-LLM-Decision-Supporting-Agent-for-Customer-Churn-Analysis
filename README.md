@@ -147,34 +147,6 @@ Version 3 focused on turning the original modeling workflow into a more engineer
 
 > Note: the actual `model_bundle.joblib` file is not included in this repository because of its size.
 
----
-
-## Project structure
-
-```text
-churn-prediction-fastapi/
-├── app/
-│   ├── api/main.py                    # FastAPI entrypoint
-│   ├── core/config.py                 # configuration management
-│   ├── schemas/predict.py             # request / response schemas
-│   └── services/
-│       ├── embeddings.py              # OpenAI / Hash embeddings
-│       ├── feature_engineering.py     # preprocessing + feature construction
-│       └── model.py                   # training, save/load, prediction
-├── scripts/
-│   ├── train_pipeline.py              # train model from raw CSV
-│   ├── bootstrap_demo_model.py        # generate demo model bundle
-│   └── run_api.py                     # local API startup
-├── tests/
-│   └── test_smoke.py                  # smoke tests
-├── .github/workflows/
-│   ├── ci.yml                         # CI pipeline
-│   └── deploy-azure-containerapps.yml # Azure deployment workflow
-├── azure/create_infra.sh              # Azure infra bootstrap
-├── examples/sample_predict_raw.json   # sample API request
-├── Dockerfile
-├── requirements.txt
-└── README.md
 
 ---
 
@@ -217,3 +189,32 @@ It also reflects my interest in designing practical intelligent systems that com
 
 ## Discussion
 Feedback, technical suggestions, and collaboration are always welcome.
+
+---
+
+## Project structure
+
+```text
+churn-prediction-fastapi/
+├── app/
+│   ├── api/main.py                    # FastAPI entrypoint
+│   ├── core/config.py                 # configuration management
+│   ├── schemas/predict.py             # request / response schemas
+│   └── services/
+│       ├── embeddings.py              # OpenAI / Hash embeddings
+│       ├── feature_engineering.py     # preprocessing + feature construction
+│       └── model.py                   # training, save/load, prediction
+├── scripts/
+│   ├── train_pipeline.py              # train model from raw CSV
+│   ├── bootstrap_demo_model.py        # generate demo model bundle
+│   └── run_api.py                     # local API startup
+├── tests/
+│   └── test_smoke.py                  # smoke tests
+├── .github/workflows/
+│   ├── ci.yml                         # CI pipeline
+│   └── deploy-azure-containerapps.yml # Azure deployment workflow
+├── azure/create_infra.sh              # Azure infra bootstrap
+├── examples/sample_predict_raw.json   # sample API request
+├── Dockerfile
+├── requirements.txt
+└── README.md
