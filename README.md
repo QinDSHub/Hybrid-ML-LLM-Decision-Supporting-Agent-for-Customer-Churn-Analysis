@@ -1,5 +1,9 @@
 # Main Optimizations of Version 2 for the Customer Churn Analysis<br>
-This version focuses on data quality improvements, feature engineering, and a hybrid retrieval-based prediction strategy.<br>
+For version v2.1, the code was developed in a rapid, iterative manner—written and tested on the fly in a single pass.
+
+In contrast, this version v2.2 focuses on restructuring the codebase according to the functions of codes, introducing a more organized architecture with clear layering and a more professional, production-ready design.
+
+Meanwhile, compared to version v1.0, this iteration places greater emphasis on data quality improvements, advanced feature engineering, and the adoption of a hybrid retrieval-based prediction strategy.<br>
 
 ## Feature Cleaning: repair_type<br>
 The repair_type feature was further standardized and cleaned. It is now used for:<br>

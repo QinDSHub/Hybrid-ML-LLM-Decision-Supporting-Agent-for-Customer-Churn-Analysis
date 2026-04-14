@@ -1,0 +1,28 @@
+[paths]
+raw_data_dir = "data/raw"
+processed_data_dir = "data/processed"
+predictions_dir = "outputs/predictions"
+metrics_dir = "outputs/metrics"
+logs_dir = "outputs/logs"
+chroma_dir = "artifacts/chroma_db"
+
+[preprocess]
+label_lookback_months = 3
+churn_inactive_years = 3
+valid_size = 0.1
+random_state = 42
+
+[model]
+embedding_model = "text-embedding-3-small"
+text_weight = 0.3
+numeric_weight = 0.7
+top_k = 10
+vote_threshold = 0.4
+batch_size = 5000
+collection_name = "multimodal"
+
+[evaluation]
+prediction_filename = "prediction.csv"
+metrics_filename = "metrics.csv"
+summary_filename = "metrics.json"
+roc_filename = "roc_curve.png"
